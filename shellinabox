@@ -1,0 +1,8 @@
+# Should shellinaboxd start automatically                                                                                                                         
+SHELLINABOX_DAEMON_START=1                                                                                                                                        
+                                                                                                                                                                  
+# TCP port that shellinboxd's webserver listens on                                                                                                                
+SHELLINABOX_PORT=80                                                                                                                                               
+                                                                                                                                                                  
+# put a bash shell on /
+SHELLINABOX_ARGS="-s/shell/:root:root:/:/bin/bash -s/tail/:root:root:/:'tail -f /data/galileo.log' -t --no-beep" 

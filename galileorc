@@ -1,0 +1,7 @@
+daemon-period: 60000
+keep-dumps: true
+do-upload: true
+dump-dir: /data
+logging: verbose
+force-sync: false
+https-only: false
