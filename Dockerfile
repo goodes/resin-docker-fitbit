@@ -2,7 +2,8 @@
 # a docker image to sunc fitbit devices
 # VERSION       1.0
 FROM resin/rpi-raspbian:jessie
-RUN pip install glances
+
+RUN touch /tmp/a
 
 # install all packages needed by galileo (may be redundant but done in case the base image is 
 # changed)
