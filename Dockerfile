@@ -15,7 +15,8 @@ RUN apt-get update && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-RUN pip install 'pyusb==1.0.0b1' galileo && mkdir -p /etc/galileo
+#RUN pip install 'pyusb==1.0.0b1' galileo && mkdir -p /etc/galileo
+RUN pip install 'pyusb==1.0.0b1' https://bitbucket.org/goodes/galileo/get/tip.tar.gz && mkdir -p /etc/galileo
 
 COPY shellinabox /etc/default/shellinabox
 COPY galileorc /etc/galileo/config
