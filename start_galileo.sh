@@ -11,7 +11,7 @@ fi
 SECS=${SLEEP_SECS:-60}
 while true; do
      echo `date` >> /data/galileo.log;
-     galileo -v sync 2>&1 >> /data/galileo.log;
+     galileo -v sync 2>&1 >> /data/galileo_$(date +"%Y%m%d").log;
      echo "Sleeping for ${SECS} seconds";
      sleep ${SECS}
 done
