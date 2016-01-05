@@ -23,7 +23,8 @@ RUN pip install 'pyusb==1.0.0b1' https://bitbucket.org/goodes/galileo/get/tip.ta
 COPY shellinabox /etc/default/shellinabox
 COPY galileorc /etc/galileo/config
 COPY start_galileo.sh /start_galileo.sh
-RUN chmod 755 /start_galileo.sh
+COPY update_date /update_date
+RUN chmod 755 /start_galileo.sh && chmod 755 /update_date
 
 #start to daemon to run fitbit sync every 15 minutes (this can be overwritten using 'docker run')
 CMD ["/start_galileo.sh"]

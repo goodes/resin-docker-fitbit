@@ -1,7 +1,6 @@
 #!/bin/bash
 echo "Setting the date"
-date $(curl -sb -H "http://www.timeapi.org/utc/now?format=%25m%25d%25H%25M%25Y.%25S")
-ntpdate pool.ntp.org
+/update_date
 if [[ -z "${NO_SHELLINABOX}" ]]
 then
    echo "Enabling shell in a box";
