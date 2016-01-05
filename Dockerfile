@@ -8,7 +8,7 @@ RUN touch /tmp/a
 # install all packages needed by galileo (may be redundant but done in case the base image is 
 # changed)
 RUN apt-get update && \
-    apt-get install -y libusb-1.0-0 ncftp ftp rsync mtp python python-pip python-requests && \
+    apt-get install -y libusb-1.0-0 ncftp ftp rsync ntp python python-pip python-requests && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
