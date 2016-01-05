@@ -1,4 +1,6 @@
 #!/bin/bash
+echo "Setting the date"
+ntpdate pool.ntp.org
 if [[ -z "${NO_SHELLINABOX}" ]]
 then
    echo "Enabling shell in a box";
