@@ -20,6 +20,8 @@ RUN apt-get update && \
 #RUN pip install 'pyusb==1.0.0b1' galileo && mkdir -p /etc/galileo
 RUN pip install 'pyusb==1.0.0b1' https://bitbucket.org/goodes/galileo/get/tip.tar.gz && mkdir -p /etc/galileo
 
+RUN mv /etc/localtime /etc/localtime_old && ln -s /usr/share/zoneinfo/Israel /etc/localtime    
+
 COPY shellinabox /etc/default/shellinabox
 COPY galileorc /etc/galileo/config
 COPY start_galileo.sh /start_galileo.sh
