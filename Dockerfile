@@ -18,6 +18,7 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 #RUN pip install 'pyusb==1.0.0b1' galileo && mkdir -p /etc/galileo
+RUN touch /tmp/b
 RUN pip install 'pyusb==1.0.0b1' https://bitbucket.org/goodes/galileo/get/tip.tar.gz && mkdir -p /etc/galileo
 
 RUN mv /etc/localtime /etc/localtime_old && ln -s /usr/share/zoneinfo/Israel /etc/localtime    
