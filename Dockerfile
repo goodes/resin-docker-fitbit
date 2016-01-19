@@ -31,7 +31,7 @@ COPY update_date /update_date
 RUN chmod 755 /start_galileo.sh && chmod 755 /update_date
 
 COPY mitmproxy-ca-cert.pem /mitmproxy-ca-cert.pem
-RUN cat /mitmproxy-ca-cert.pem >  vi /usr/local/lib/python2.7/dist-packages/certifi/cacert.pem                                                                               
+RUN cat /mitmproxy-ca-cert.pem >> /usr/local/lib/python2.7/dist-packages/certifi/cacert.pem                                                                               
 
 #start to daemon to run fitbit sync every 15 minutes (this can be overwritten using 'docker run')
 CMD ["/start_galileo.sh"]
