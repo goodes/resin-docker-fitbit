@@ -28,12 +28,12 @@ COPY shellinabox /etc/default/shellinabox
 COPY galileorc /etc/galileo/config
 COPY start_galileo.sh /start_galileo.sh
 COPY update_date /update_date
-RUN chmod 755 /start_galileo.sh && chmod 755 /update_date
+COPY checktime.py /checktime.py
+RUN chmod 755 /start_galileo.sh && chmod 755 /update_date && chmod 755 /checktime.py
 
 COPY mitmproxy-ca-cert.pem /mitmproxy-ca-cert.pem
 RUN cat /mitmproxy-ca-cert.pem >> /usr/local/lib/python2.7/dist-packages/certifi/cacert.pem                                                                               
 
-COPY checktime.py /checktime.py
 
 #start to daemon to run fitbit sync every 15 minutes (this can be overwritten using 'docker run')
 CMD ["/start_galileo.sh"]
