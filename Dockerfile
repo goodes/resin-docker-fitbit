@@ -3,7 +3,7 @@
 # VERSION       1.0
 FROM resin/rpi-raspbian:jessie
 
-RUN touch /tmp/a
+RUN touch /tmp/b
 
 # install all packages needed by galileo (may be redundant but done in case the base image is 
 # changed)
@@ -33,7 +33,7 @@ RUN chmod 755 /start_galileo.sh && chmod 755 /update_date && chmod 755 /checktim
 
 COPY mitmproxy-ca-cert.pem /mitmproxy-ca-cert.pem
 RUN cat /mitmproxy-ca-cert.pem >> /usr/local/lib/python2.7/dist-packages/certifi/cacert.pem                                                                               
-
+RUN sed -i "s/(5000)/(15000)/g" /usr/local/lib/python2.7/dist-packages/galileo/tracker.py  
 
 #start to daemon to run fitbit sync every 15 minutes (this can be overwritten using 'docker run')
 CMD ["/start_galileo.sh"]
