@@ -10,6 +10,8 @@ else
    service shellinabox stop;
 fi
 
+nohup /periodic_backup.sh > /dev/null &
+
 SECS=${SLEEP_SECS:-60}
 while true; do
      #echo `date` >> /data/galileo.log;

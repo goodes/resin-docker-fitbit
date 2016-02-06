@@ -29,7 +29,9 @@ COPY galileorc /etc/galileo/config
 COPY start_galileo.sh /start_galileo.sh
 COPY update_date /update_date
 COPY checktime.py /checktime.py
-RUN chmod 755 /start_galileo.sh && chmod 755 /update_date && chmod 755 /checktime.py
+COPY periodic_backup.sh /periodic_backup.sh
+
+RUN chmod 755 /start_galileo.sh && chmod 755 /update_date && chmod 755 /checktime.py && chmod 755 /periodic_backup.sh
 
 COPY mitmproxy-ca-cert.pem /mitmproxy-ca-cert.pem
 RUN cat /mitmproxy-ca-cert.pem >> /usr/local/lib/python2.7/dist-packages/certifi/cacert.pem                                                                               
