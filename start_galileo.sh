@@ -1,14 +1,14 @@
 #!/bin/bash
 echo "Setting the date"
 /update_date
-if [[ -z "${NO_SHELLINABOX}" ]]
-then
-   echo "Enabling shell in a box";
-   service shellinabox start;
-else
-   echo "Shellinabox DISABLED";
-   service shellinabox stop;
-fi
+# if [[ -z "${NO_SHELLINABOX}" ]]
+# then
+#    echo "Enabling shell in a box";
+#    service shellinabox start;
+# else
+#    echo "Shellinabox DISABLED";
+#    service shellinabox stop;
+# fi
 
 nohup /periodic_backup.sh > /dev/null &
 
