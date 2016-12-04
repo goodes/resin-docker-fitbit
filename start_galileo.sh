@@ -15,6 +15,7 @@ nohup /periodic_backup.sh > /dev/null &
 SECS=${SLEEP_SECS:-60}
 while true; do
      #echo `date` >> /data/galileo.log;
+     echo "-------------------------------------------------------------------------"
      /update_date
      /checktime.py
      if [ $? -eq 0 ]; then 
