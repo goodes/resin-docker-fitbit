@@ -15,6 +15,7 @@ nohup /periodic_backup.sh > /dev/null &
 SECS=${SLEEP_SECS:-60}
 while true; do
      #echo `date` >> /data/galileo.log;
+     /update_date
      /checktime.py
      if [ $? -eq 0 ]; then 
          galileo --no-https-only -v sync 2>&1 >> /data/galileo_$(date +"%Y%m%d").log;
