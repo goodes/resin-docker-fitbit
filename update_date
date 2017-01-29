@@ -1,3 +1,4 @@
 echo "Date Before:  $( date )"
-date $( curl -sb -H "http://www.timeapi.org/utc/in+two+hours?format=%25m%25d%25H%25M%25Y.%25S" )
+#date $( curl -sb -H "http://www.timeapi.org/utc/in+two+hours?format=%25m%25d%25H%25M%25Y.%25S" )
+date $(./update_time.py)
 echo "Date After:   $( date )"
