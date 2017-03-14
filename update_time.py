@@ -18,7 +18,7 @@ try:
        raise RuntimeError("Bad response {}".format(r.content))
     tstamp = tdata['timestamp']-tdata['gmtOffset'] 
     ts = datetime.datetime.utcfromtimestamp(tdata['timestamp'])  # time.time(tstamp)
-    print ts.strftime("%m%d%H%M%S%Y.%S")
+    print ts.strftime("%m%d%H%M%Y.%S")
 except Exception as ex:
     sys.stderr.write("Request ERROR: {}\n".format(str(ex)))
     print ""
