@@ -19,7 +19,7 @@ RUN apt-get update && \
 
 #RUN pip install 'pyusb==1.0.0b1' galileo && mkdir -p /etc/galileo
 RUN touch /tmp/b
-RUN pip install certifi 'pyusb==1.0.0b1' https://bitbucket.org/benallard/galileo/get/tip.tar.gz && mkdir -p /etc/galileo
+RUN pip install certifi 'pyusb==1.0.0' https://bitbucket.org/benallard/galileo/get/tip.tar.gz && mkdir -p /etc/galileo
 #RUN pip install 'pyusb==1.0.0b1' https://bitbucket.org/benallard/galileo/get/0.4.4.tar.gz && mkdir -p /etc/galileo
 
 RUN mv /etc/localtime /etc/localtime_old && ln -s /usr/share/zoneinfo/Israel /etc/localtime    
@@ -37,6 +37,7 @@ RUN chmod 755 /start_galileo.sh && chmod 755 /update_date && chmod 755 /checktim
 #COPY mitmproxy-ca-cert.pem /mitmproxy-ca-cert.pem
 #RUN cat /mitmproxy-ca-cert.pem >> /usr/local/lib/python2.7/dist-packages/certifi/cacert.pem                                                                               
 RUN sed -i "s/(5000)/(15000)/g" /usr/local/lib/python2.7/dist-packages/galileo/tracker.py  
+RUN sed -i "s/timeout=2000/timeout=15000/g" /usr/local/lib/python2.7/dist-packages/galileo/dongle.py
 
 #start to daemon to run fitbit sync every 15 minutes (this can be overwritten using 'docker run')
 CMD ["/start_galileo.sh"]
