@@ -13,8 +13,15 @@ echo "Setting the date"
 nohup /periodic_backup.sh > /dev/null &
 
 SECS=${SLEEP_SECS:-60}
+REBOOT_TIME=${REBOOT_TIME:-0}
+
+# set the date and the if set, enable the reboot script
+/update_date
+if (( "${REBOOT_TIME}" > "0" )); then 
+   /sleep_reboot.sh &
+fi
+
 while true; do
-     #echo `date` >> /data/galileo.log;
      echo "-------------------------------------------------------------------------"
      /update_date
      /checktime.py

@@ -30,6 +30,7 @@ COPY galileorc /etc/galileo/config
 COPY start_galileo.sh /start_galileo.sh
 COPY update_date /update_date
 COPY update_time.py /update_time.py
+COPY sleep_reboot.sh /sleep_reboot.sh
 COPY checktime.py /checktime.py
 COPY periodic_backup.sh /periodic_backup.sh
 
