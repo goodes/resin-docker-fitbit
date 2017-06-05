@@ -18,7 +18,7 @@ REBOOT_TIME=${REBOOT_TIME:-0}
 # set the date and the if set, enable the reboot script
 /update_date
 if (( "${REBOOT_TIME}" > "0" )); then 
-   nohup /sleep_reboot.sh &
+   nohup /sleep_reboot.sh 2>&1 | tee -a /dev/null &
 fi
 
 while true; do
