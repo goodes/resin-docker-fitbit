@@ -41,7 +41,7 @@ RUN chmod 755 /start_galileo.sh \
               /alive.sh \
               /update_date \
               /checktime.py \
-              /do_backup.py \
+              /do_backup.sh \
               /update_time.py
 
 #COPY mitmproxy-ca-cert.pem /mitmproxy-ca-cert.pem
