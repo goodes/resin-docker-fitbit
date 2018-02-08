@@ -28,7 +28,7 @@ while true; do
      /update_date
      /checktime.py
      if [ $? -eq 0 ]; then
-         galileo --no-https-only -v sync 2>&1 >> /data/galileo_$(date +"%Y%m%d").log;
+         galileo --no-https-only -v sync 2>&1 | tee -a /data/galileo_$(date +"%Y%m%d").log;
      else
          echo "doing nothing for now"
      fi
