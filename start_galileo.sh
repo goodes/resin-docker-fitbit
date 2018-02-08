@@ -21,7 +21,7 @@ if (( "${REBOOT_TIME}" > "0" )); then
    nohup /sleep_reboot.sh 2>&1 | tee -a /dev/null &
 fi
 
-nohup /alive.sh >> /data/alive.sh & 
+nohup /alive.sh >> /data/alive.log & 
 
 while true; do
      echo "-------------------------------------------------------------------------"
