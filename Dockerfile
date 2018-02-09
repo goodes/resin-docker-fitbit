@@ -45,7 +45,7 @@ RUN chmod 755 /start_galileo.sh \
 #RUN cat /mitmproxy-ca-cert.pem >> /usr/local/lib/python2.7/dist-packages/certifi/cacert.pem
 RUN sed -i "s/(5000)/(15000)/g" /usr/local/lib/python2.7/dist-packages/galileo/tracker.py
 RUN sed -i "s/timeout=2000/timeout=15000/g" /usr/local/lib/python2.7/dist-packages/galileo/dongle.py
-
+RUN echo "@daily /do_backup.sh >> /data/_backups/backup.log"  | crontab
 
 #start to daemon to run fitbit sync every 15 minutes (this can be overwritten using 'docker run')
 CMD ["/start_galileo.sh"]

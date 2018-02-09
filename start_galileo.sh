@@ -10,7 +10,7 @@ echo "Setting the date"
 #    service shellinabox stop;
 # fi
 
-nohup /periodic_backup.sh > /dev/null &
+#nohup /periodic_backup.sh > /dev/null &
 
 SECS=${SLEEP_SECS:-60}
 REBOOT_TIME=${REBOOT_TIME:-0}
