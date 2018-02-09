@@ -1,7 +1,7 @@
 # fitbit galileo
 # a docker image to sunc fitbit devices
 # VERSION       1.0
-FROM resin/rpi-raspbian:jessie
+FROM resin/rpi-raspbian:jessie-20180207
 ENV INITSYSTEM ON
 
 RUN touch /tmp/b
@@ -9,12 +9,8 @@ RUN touch /tmp/b
 # install all packages needed by galileo (may be redundant but done in case the base image is
 # changed)
 RUN apt-get update && \
-    apt-get install -y telnet unzip libusb-1.0-0 netcat ncftp ftp rsync curl wget ntpdate python python-pip python-requests && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
-
-RUN apt-get update && \
-    apt-get install -y vim net-tools less openssl shellinabox && \
+    apt-get install -y telnet unzip libusb-1.0-0 netcat ncftp ftp rsync curl wget ntpdate python python-pip python-requests \
+                       cron vim net-tools less openssl shellinabox && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
