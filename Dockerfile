@@ -2,6 +2,7 @@
 # a docker image to sunc fitbit devices
 # VERSION       1.0
 FROM resin/rpi-raspbian:jessie
+ENV INITSYSTEM ON
 
 RUN touch /tmp/b
 
