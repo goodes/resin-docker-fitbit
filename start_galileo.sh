@@ -15,7 +15,7 @@ echo "Setting the date"
 SECS=${SLEEP_SECS:-60}
 REBOOT_TIME=${REBOOT_TIME:-0}
 
-echo "${RESIN_DEVICE_NAME_AT_INIT}" > /data/device_name
+echo -n "${RESIN_DEVICE_NAME_AT_INIT}" > /data/device_name
 
 # set the date and the if set, enable the reboot script
 /update_date
