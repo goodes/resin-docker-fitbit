@@ -32,6 +32,7 @@ COPY checktime.py /checktime.py
 COPY periodic_backup.sh /periodic_backup.sh
 COPY do_backup.sh /do_backup.sh
 COPY alive.sh /alive.sh
+COPY crontab.template /crontab.template
 
 RUN chmod 755 /start_galileo.sh \
               /periodic_backup.sh \
@@ -45,7 +46,7 @@ RUN chmod 755 /start_galileo.sh \
 #RUN cat /mitmproxy-ca-cert.pem >> /usr/local/lib/python2.7/dist-packages/certifi/cacert.pem
 RUN sed -i "s/(5000)/(15000)/g" /usr/local/lib/python2.7/dist-packages/galileo/tracker.py
 RUN sed -i "s/timeout=2000/timeout=15000/g" /usr/local/lib/python2.7/dist-packages/galileo/dongle.py
-RUN echo "@daily /do_backup.sh >> /data/_backups/backup.log"  | crontab
+RUN cat | crontab
 
 #start to daemon to run fitbit sync every 15 minutes (this can be overwritten using 'docker run')
 CMD ["/start_galileo.sh"]
