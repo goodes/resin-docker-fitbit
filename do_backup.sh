@@ -1,5 +1,5 @@
 echo -n "$(date): "
-DEFAULT_DEVICE_NAME="$(cat /data/device_name)
+DEFAULT_DEVICE_NAME="$(cat /data/device_name)"
 
 TS=$(date +"%Y-%m-%d")
 FN="${RESIN_DEVICE_NAME_AT_INIT:-$DEFAULT_DEVICE_NAME}_${TS}.tgz"
